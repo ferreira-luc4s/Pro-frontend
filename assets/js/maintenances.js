@@ -243,8 +243,6 @@ class Maintenances {
     this.renderMaintenances(filtered);
   }
 
-
-
   showNotification(type, title, message) {
     const modal = document.getElementById('notificationModal');
     const icon = document.getElementById('notificationIcon');

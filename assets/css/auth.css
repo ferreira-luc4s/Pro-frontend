@@ -138,9 +138,182 @@ a:hover {
   gap: 1rem;
 }
 
-@media (max-width: 480px) {
+/* Responsive Design for Auth Pages */
+/* Extra small devices (phones, 480px and down) */
+@media (max-width: 479.98px) {
+  body {
+    padding: var(--spacing-sm);
+    font-size: 14px;
+  }
+
+  .auth-container {
+    max-width: 100%;
+  }
+
+  .auth-card {
+    padding: var(--spacing-lg);
+    margin: 0;
+    border-radius: var(--spacing-sm);
+  }
+
+  .auth-logo {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .auth-logo svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .auth-card h1 {
+    font-size: 20px;
+  }
+
+  .auth-card h2 {
+    font-size: 18px;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  form {
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  input,
+  button {
+    padding: var(--spacing-sm);
+    font-size: 15px;
+  }
+
+  .alert {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  .alert i {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Small devices (landscape phones, 480px to 767px) */
+@media (min-width: 480px) and (max-width: 767.98px) {
+  body {
+    padding: var(--spacing-md);
+  }
+
   .auth-card {
     padding: var(--spacing-xl);
+    max-width: 450px;
+  }
+
+  input,
+  button {
+    font-size: 15px;
+  }
+}
+
+/* Medium devices and up (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .auth-card {
+    padding: var(--spacing-2xl);
+    max-width: 500px;
+  }
+
+  .auth-card h1 {
+    font-size: 26px;
+  }
+
+  .auth-card h2 {
+    font-size: 22px;
+  }
+}
+
+/* Landscape orientation for mobile devices */
+@media (orientation: landscape) and (max-height: 500px) {
+  body {
+    padding: var(--spacing-sm);
+  }
+
+  .auth-card {
+    padding: var(--spacing-lg);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .auth-logo {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .auth-card h2 {
+    margin-bottom: var(--spacing-md);
+  }
+
+  form {
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    animation: none;
+  }
+
+  button {
+    transition: none;
+  }
+
+  input {
+    transition: none;
+  }
+}
+
+/* Focus improvements for accessibility */
+@media (prefers-reduced-motion: no-preference) {
+  input:focus,
+  button:focus {
+    transition: all 0.2s ease;
+  }
+}
+
+/* Touch device optimizations */
+@media (pointer: coarse) {
+  input,
+  button {
+    min-height: 44px; /* Minimum touch target size */
+    padding: var(--spacing-md);
+  }
+
+  a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Hover support detection */
+@media (hover: hover) {
+  button:hover {
+    transform: translateY(-1px);
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (hover: none) {
+  button:hover {
+    transform: none;
   }
 }
 
