@@ -1,109 +1,151 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sistema de Gerenciamento de Equipamentos - Faça login para acessar">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/auth.css">
-  <title>Login - Sistema de Equipamentos</title>
-</head>
-<body>
-  <main class="auth-container">
-    <section class="auth-card">
-      <header>
-        <div class="auth-logo">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
-            <line x1="12" y1="22.08" x2="12" y2="12"/>
-            <circle cx="12" cy="8" r="2" fill="currentColor"/>
-          </svg>
-          <h1>EquipManager</h1>
-        </div>
-      </header>
-      
-      <section id="loginForm" aria-labelledby="login-title">
-        <h2 id="login-title">Entrar na sua conta</h2>
-        <form id="loginFormElement" novalidate>
-          <div class="form-group">
-            <label for="loginEmail" class="sr-only">Email</label>
-            <input 
-              type="email" 
-              id="loginEmail" 
-              name="email"
-              placeholder="Digite seu email" 
-              required 
-              autocomplete="email"
-              aria-describedby="email-error"
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema de Gerenciamento de Equipamentos - Faça login para acessar"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/auth.css" />
+    <title>Login - Sistema de Equipamentos</title>
+  </head>
+  <body>
+    <main class="auth-container">
+      <section class="auth-card">
+        <header>
+          <div class="auth-logo">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
             >
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+              />
+              <polyline points="3.27,6.96 12,12.01 20.73,6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+              <circle cx="12" cy="8" r="2" fill="currentColor" />
+            </svg>
+            <h1>EquipManager</h1>
           </div>
-          <div class="form-group">
-            <label for="loginPassword" class="sr-only">Senha</label>
-            <input 
-              type="password" 
-              id="loginPassword" 
-              name="password"
-              placeholder="Digite sua senha" 
-              required 
-              autocomplete="current-password"
-              aria-describedby="password-error"
-            >
-          </div>
-          <button type="submit" aria-describedby="login-status">Entrar</button>
-        </form>
-        <p>Não tem conta? <a href="#" id="showRegister" role="button" aria-label="Ir para formulário de registro">Criar conta</a></p>
-      </section>
+        </header>
 
-      <section id="registerForm" style="display:none;" aria-labelledby="register-title">
-        <h2 id="register-title">Criar nova conta</h2>
-        <form id="registerFormElement" novalidate>
-          <div class="form-group">
-            <label for="registerName" class="sr-only">Nome completo</label>
-            <input 
-              type="text" 
-              id="registerName" 
-              name="name"
-              placeholder="Digite seu nome completo" 
-              required 
-              autocomplete="name"
-              aria-describedby="name-error"
+        <section id="loginForm" aria-labelledby="login-title">
+          <h2 id="login-title">Entrar na sua conta</h2>
+          <form id="loginFormElement" novalidate>
+            <div class="form-group">
+              <label for="loginEmail" class="sr-only">Email</label>
+              <input
+                type="email"
+                id="loginEmail"
+                name="email"
+                placeholder="Digite seu email"
+                required
+                autocomplete="email"
+                aria-describedby="email-error"
+              />
+            </div>
+            <div class="form-group">
+              <label for="loginPassword" class="sr-only">Senha</label>
+              <input
+                type="password"
+                id="loginPassword"
+                name="password"
+                placeholder="Digite sua senha"
+                required
+                autocomplete="current-password"
+                aria-describedby="password-error"
+              />
+            </div>
+            <button type="submit" aria-describedby="login-status">
+              Entrar
+            </button>
+          </form>
+          <p>
+            Não tem conta?
+            <a
+              href="#"
+              id="showRegister"
+              role="button"
+              aria-label="Ir para formulário de registro"
+              >Criar conta</a
             >
-          </div>
-          <div class="form-group">
-            <label for="registerEmail" class="sr-only">Email</label>
-            <input 
-              type="email" 
-              id="registerEmail" 
-              name="email"
-              placeholder="Digite seu email" 
-              required 
-              autocomplete="email"
-              aria-describedby="register-email-error"
-            >
-          </div>
-          <div class="form-group">
-            <label for="registerPassword" class="sr-only">Senha</label>
-            <input 
-              type="password" 
-              id="registerPassword" 
-              name="password"
-              placeholder="Crie uma senha" 
-              required 
-              autocomplete="new-password"
-              aria-describedby="register-password-error"
-              minlength="6"
-            >
-          </div>
-          <button type="submit" aria-describedby="register-status">Criar conta</button>
-        </form>
-        <p>Já tem conta? <a href="#" id="showLogin" role="button" aria-label="Voltar para formulário de login">Fazer login</a></p>
-      </section>
-    </section>
-  </main>
+          </p>
+        </section>
 
-  <script src="./assets/js/auth.js"></script>
-</body>
+        <section
+          id="registerForm"
+          style="display: none"
+          aria-labelledby="register-title"
+        >
+          <h2 id="register-title">Criar nova conta</h2>
+          <form id="registerFormElement" novalidate>
+            <div class="form-group">
+              <label for="registerName" class="sr-only">Nome completo</label>
+              <input
+                type="text"
+                id="registerName"
+                name="name"
+                placeholder="Digite seu nome completo"
+                required
+                autocomplete="name"
+                aria-describedby="name-error"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerEmail" class="sr-only">Email</label>
+              <input
+                type="email"
+                id="registerEmail"
+                name="email"
+                placeholder="Digite seu email"
+                required
+                autocomplete="email"
+                aria-describedby="register-email-error"
+              />
+            </div>
+            <div class="form-group">
+              <label for="registerPassword" class="sr-only">Senha</label>
+              <input
+                type="password"
+                id="registerPassword"
+                name="password"
+                placeholder="Crie uma senha"
+                required
+                autocomplete="new-password"
+                aria-describedby="register-password-error"
+                minlength="6"
+              />
+            </div>
+            <button type="submit" aria-describedby="register-status">
+              Criar conta
+            </button>
+          </form>
+          <p>
+            Já tem conta?
+            <a
+              href="#"
+              id="showLogin"
+              role="button"
+              aria-label="Voltar para formulário de login"
+              >Fazer login</a
+            >
+          </p>
+        </section>
+      </section>
+    </main>
+
+    <script src="assets/js/config.js"></script>
+    <script src="./assets/js/auth.js"></script>
+  </body>
 </html>
