@@ -126,7 +126,7 @@ class Auth {
     this.clearMessages();
     const errorDiv = document.createElement('div');
     errorDiv.className = 'alert alert-error';
-    errorDiv.textContent = message;
+    errorDiv.innerHTML = `<i data-feather="alert-triangle"></i>${message}`;
     errorDiv.setAttribute('role', 'alert');
     
     const activeForm = document.getElementById('loginForm').style.display !== 'none' 
@@ -134,13 +134,14 @@ class Auth {
       : document.getElementById('registerForm');
     
     activeForm.insertBefore(errorDiv, activeForm.querySelector('form'));
+    feather.replace();
   }
 
   showSuccess(message) {
     this.clearMessages();
     const successDiv = document.createElement('div');
     successDiv.className = 'alert alert-success';
-    successDiv.textContent = message;
+    successDiv.innerHTML = `<i data-feather="check-circle"></i>${message}`;
     successDiv.setAttribute('role', 'alert');
     
     const activeForm = document.getElementById('loginForm').style.display !== 'none' 
@@ -148,6 +149,7 @@ class Auth {
       : document.getElementById('registerForm');
     
     activeForm.insertBefore(successDiv, activeForm.querySelector('form'));
+    feather.replace();
   }
 
   clearMessages() {

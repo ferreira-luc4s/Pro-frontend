@@ -1011,6 +1011,11 @@ nav {
   color: var(--danger-color);
 }
 
+.notification-icon i {
+  width: 24px;
+  height: 24px;
+}
+
 .notification-icon.warning {
   background-color: var(--warning-light);
   color: var(--warning-color);

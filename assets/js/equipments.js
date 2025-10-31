@@ -225,14 +225,15 @@ class Equipments {
 
     icon.className = `notification-icon ${type}`;
     if (type === 'success') {
-      icon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>';
+      icon.innerHTML = '<i data-feather="check-circle"></i>';
     } else if (type === 'error') {
-      icon.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+      icon.innerHTML = '<i data-feather="x-circle"></i>';
     }
 
     titleEl.textContent = title;
     messageEl.textContent = message;
     modal.classList.add('show');
+    feather.replace();
 
     okBtn.onclick = () => modal.classList.remove('show');
   }
