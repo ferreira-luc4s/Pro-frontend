@@ -205,7 +205,7 @@ button[type="submit"]:hover:not(:disabled), .btn-primary:hover:not(:disabled) {
 }
 
 /* Header Styles */
-header {
+header[role=banner] {
   background-color: var(--surface-color);
   padding: var(--spacing-lg) var(--spacing-xl);
   box-shadow: var(--shadow-sm);
@@ -216,6 +216,11 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.section-header{
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-sm);
 }
 
 header h1 {
