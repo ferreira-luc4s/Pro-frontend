@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gerenciamento de Manutenções - Sistema de Equipamentos"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Manutenções - Sistema de Equipamentos</title>
+  </head>
+  <body>
+    <header role="banner">
+      <div class="logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+          <circle cx="12" cy="8" r="2" fill="currentColor"/>
+        </svg>
+        <h1>EquipManager</h1>
+      </div>
+      <nav role="navigation" aria-label="Navegação principal">
+        <a href="index.html" class="nav-link" aria-label="Ir para dashboard"
+          >Dashboard</a
+        >
+        <a
+          href="equipments.html"
+          class="nav-link"
+          aria-label="Ir para página de equipamentos"
+          >Equipamentos</a
+        >
+        <a href="maintenances.html" class="nav-link active" aria-current="page"
+          >Manutenções</a
+        >
+        <button id="logoutBtn" type="button" aria-label="Sair do sistema">
+          Sair
+        </button>
+      </nav>
+    </header>
+
+    <main class="section" role="main">
+      <header class="section-header">
+        <div class="section-row">
+          <h2>Gerenciar Manutenções</h2>
+          <button
+            id="addMaintenanceBtn"
+            class="btn-primary"
+            type="button"
+            aria-label="Abrir formulário para adicionar nova manutenção"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Nova Manutenção
+          </button>
+        </div>
+
+        <div class="controls-row">
+          <div class="search-box">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Buscar por equipamento ou descrição..."
+            />
+          </div>
+
+          <div class="filter-group">
+            <select id="statusFilter">
+              <option value="">Todos os status</option>
+              <option value="pending">Pendente</option>
+              <option value="in-progress">Em Andamento</option>
+              <option value="completed">Concluída</option>
+              <option value="cancelled">Cancelada</option>
+            </select>
+
+            <select id="equipmentFilter">
+              <option value="">Todos os equipamentos</option>
+            </select>
+          </div>
+        </div>
+      </header>
+
+      <section aria-label="Lista de manutenções">
+        <div
+          id="maintenancesList"
+          class="maintenance-grid"
+          role="list"
+          aria-live="polite"
+        ></div>
+      </section>
+    </main>
+
+    <!-- Maintenance Modal -->
+    <div
+      id="maintenanceModal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="maintenanceModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <button class="close" type="button" aria-label="Fechar modal">
+          &times;
+        </button>
+        <h2 id="maintenanceModalTitle">Adicionar Manutenção</h2>
+        <form id="maintenanceForm" novalidate>
+          <input type="hidden" id="maintenanceId" />
+
+          <div class="form-group">
+            <label for="maintenanceEquipmentId">Equipamento</label>
+            <select
+              id="maintenanceEquipmentId"
+              name="equipmentId"
+              required
+              aria-describedby="equipment-error"
+            >
+              <option value="">Selecione um equipamento</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="maintenanceDescription">Descrição</label>
+            <textarea
+              id="maintenanceDescription"
+              name="description"
+              placeholder="Descreva o tipo de manutenção necessária"
+              required
+              aria-describedby="description-error"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="maintenanceDate">Data da Manutenção</label>
+            <input
+              type="date"
+              id="maintenanceDate"
+              name="date"
+              required
+              aria-describedby="date-error"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="maintenanceStatus">Status</label>
+            <select
+              id="maintenanceStatus"
+              name="status"
+              required
+              aria-describedby="status-error"
+            >
+              <option value="">Selecione o status</option>
+              <option value="pending">Pendente</option>
+              <option value="in-progress">Em Andamento</option>
+              <option value="completed">Concluída</option>
+              <option value="cancelled">Cancelada</option>
+            </select>
+          </div>
+
+          <button type="submit">Salvar Manutenção</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="notificationModal" class="notification-modal">
+      <div class="notification-content">
+        <div id="notificationIcon" class="notification-icon"></div>
+        <h3 id="notificationTitle" class="notification-title"></h3>
+        <p id="notificationMessage" class="notification-message"></p>
+        <div class="notification-actions">
+          <button id="notificationOk" class="btn-notification primary">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmationModal" class="confirmation-modal">
+      <div class="confirmation-content">
+        <div class="confirmation-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+          </svg>
+        </div>
+        <h3 id="confirmationTitle" class="confirmation-title">Confirmar Ação</h3>
+        <p id="confirmationMessage" class="confirmation-message"></p>
+        <div class="confirmation-actions">
+          <button id="confirmationCancel" class="btn-notification secondary">Cancelar</button>
+          <button id="confirmationConfirm" class="btn-notification primary">Confirmar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/js/maintenances.js"></script>
+  </body>
+</html>
