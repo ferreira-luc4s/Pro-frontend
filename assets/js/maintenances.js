@@ -46,7 +46,7 @@ class Maintenances {
 
   async loadEquipments() {
     try {
-      const response = await fetch(`${this.baseURL}/equipaments`, {
+      const response = await fetch(`${this.baseURL}/equipments`, {
         headers: AuthUtils.getAuthHeaders()
       });
 

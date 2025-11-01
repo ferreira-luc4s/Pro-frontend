@@ -26,7 +26,7 @@ class Equipments {
 
   async loadEquipments() {
     try {
-      const response = await fetch(`${this.baseURL}/equipaments`, {
+      const response = await fetch(`${this.baseURL}/equipments`, {
         headers: AuthUtils.getAuthHeaders()
       });
 
@@ -104,7 +104,7 @@ class Equipments {
     };
 
     const method = id ? 'PUT' : 'POST';
-    const url = id ? `${this.baseURL}/equipaments/${id}` : `${this.baseURL}/equipaments`;
+    const url = id ? `${this.baseURL}/equipments/${id}` : `${this.baseURL}/equipments`;
 
     try {
       const response = await fetch(url, {
@@ -127,7 +127,7 @@ class Equipments {
 
   async edit(id) {
     try {
-      const response = await fetch(`${this.baseURL}/equipaments/${id}`, {
+      const response = await fetch(`${this.baseURL}/equipments/${id}`, {
         headers: AuthUtils.getAuthHeaders()
       });
 
@@ -159,7 +159,7 @@ class Equipments {
 
   async performDelete(id) {
     try {
-      const response = await fetch(`${this.baseURL}/equipaments/${id}`, {
+      const response = await fetch(`${this.baseURL}/equipments/${id}`, {
         method: 'DELETE',
         headers: AuthUtils.getAuthHeaders()
       });

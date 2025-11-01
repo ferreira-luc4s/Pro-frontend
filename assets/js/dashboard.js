@@ -17,7 +17,7 @@ class Dashboard {
   async loadCounts() {
     try {
       const [equipmentsRes, maintenancesRes] = await Promise.all([
-        fetch(`${this.baseURL}/equipaments`, { headers: AuthUtils.getAuthHeaders() }),
+        fetch(`${this.baseURL}/equipments`, { headers: AuthUtils.getAuthHeaders() }),
         fetch(`${this.baseURL}/maintenances`, { headers: AuthUtils.getAuthHeaders() })
       ]);
 
