@@ -3,8 +3,8 @@ name: Deploy para GitHub Pages
 on:
   push:
     branches:
-      - main 
-      
+      - main
+
 permissions:
   contents: read
   pages: write
@@ -13,13 +13,29 @@ permissions:
 jobs:
   deploy:
     environment:
-      name: github-pages
+      name: production
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Clonar repositório
         uses: actions/checkout@v4
+
+      - name: Substituir arquivo de configuração
+        run: |
+          echo "Reescrevendo assets/js/config.js com API_BASE_URL do ambiente..."
+          mkdir -p assets/js
+          cat > assets/js/config.js <<EOF
+          const CONFIG = {
+            API_BASE_URL: '${{ vars.API_BASE_URL }}',
+            LOGIN_REDIRECT: 'login.html'
+          };
+          EOF
+
+      - name: Verificar conteúdo (debug opcional)
+        run: |
+          echo "Conteúdo atual do config.js:"
+          cat assets/js/config.js
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
